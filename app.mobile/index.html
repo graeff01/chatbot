@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>אלוהים</title>
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	
+</head>
+<body>
+	<header>
+		<h1>אלוהים</h1>
+	</header>
+	<main>
+
+		<div class="chat-container">
+			<div class="chat-message boot">
+				
+                <div class="logo img"> 
+                   <img src="image/bot.png" alt="Logo">
+                </div>
+				<p class="animate__animated animate__bounceIn">Olá! Como posso ajudar?</p>
+			</div>
+		
+				
+
+		   <div class="chat-message resposta">
+			<div class="logo img">
+				<img src="image/usuário.png" alt="Logo">
+		   </div>
+		   <p><span id="result">Sua resposta será apresentada aqui!</span></p>
+		   
+		   
+	   </div>
+		   <main>
+
+
+			
+			  <!-- outras mensagens de chat aqui -->
+			
+			  
+	</main>
+
+	<script src="search.js"></script> 
+
+
+		<script>
+			const sampleResponses = [
+			{
+			keyword: 'oi',
+				response: 'oi, eu sou אלוהים.',				
+			  },
+			  {
+				keyword: 'mensagem',
+				response: 'Para enviar uma mensagem de chat, basta digitar sua mensagem na caixa de texto na parte inferior da tela e pressionar "Enter".'
+			  },
+			  {
+				keyword: 'quais linguagens são mais populares?',
+				response: 'Algumas das linguagens de programação mais populares atualmente são: JavaScript, Python, Java, C++, C#, PHP, Swift e Kotlin.'
+			  },
+			  {
+				keyword:'o que é uma api?',
+				response:'Uma API (Application Programming Interface) é um conjunto de instruções e padrões de programação para acessar um software ou aplicativo baseado na web. As APIs permitem que diferentes aplicativos e serviços se comuniquem entre si de forma eficiente e padronizada.'
+			  },
+			  {
+				keyword: 'o que é programação orientada a objetos?',
+				response: 'Programação orientada a objetos (POO) é um paradigma de programação baseado na ideia de objetos, que podem conter dados e métodos (funções). O objetivo é modelar problemas do mundo real de uma forma mais natural e organizada.'
+			  },
+			  {
+				keyword: 'como funciona a criptografia em comunicações online?',
+				response: 'A criptografia é um processo de codificação de informações para que apenas o remetente e o destinatário possam ler e entender as mensagens. A criptografia em comunicações online geralmente usa um algoritmo de chave pública, onde o remetente criptografa a mensagem usando a chave pública do destinatário, que por sua vez pode decodificar a mensagem usando sua chave privada correspondente.'
+			  },
+
+			];
+		  </script>
+
+		<form class="chat-form">
+
+			<input type="text" id="search-input" placeholder="Digite aqui sua pesquisa..." list="suggestions">
+            <datalist id="suggestions">
+			<option value="oi">
+		    <option value="mensagem">
+            <option value="quais linguagens são mais populares?">
+			<option value="o que é uma api?">
+			<option value="como funciona a criptografia em comunicações online?"></option>
+            </datalist>
+			
+			<button type="submit" id="search-button"><i class="fas fa-search"></i></button>
+        </form>
+
+	</main>
+	<script src="search.js"></script> 
+	
+	<script>
+		// Seleciona o formulário de chat e o campo de pesquisa
+		const chatForm = document.querySelector('.chat-form');
+		const searchInput = document.querySelector('#search-input');
+	  
+		// Adiciona um ouvinte de evento ao formulário para detectar quando o usuário envia uma pesquisa
+		chatForm.addEventListener('submit', (event) => {
+		  event.preventDefault();
+	  
+		  // Obtém o valor da pesquisa
+		  const searchValue = searchInput.value.toLowerCase();
+	  
+		  // Seleciona o elemento que exibirá o resultado da pesquisa
+		  const searchResult = document.querySelector('#result');
+	  
+		  // Procura uma resposta de amostra correspondente à palavra-chave de pesquisa
+		  const matchedResponse = sampleResponses.find(response => searchValue.includes(response.keyword));
+	  
+		  // Exibe a resposta de amostra correspondente ou uma mensagem padrão de "desculpe" se não houver correspondência
+		  searchResult.textContent = matchedResponse ? matchedResponse.response : 'Desculpe, não entendi sua pergunta. Tente outra pesquisa.';
+		});
+	  </script>
+
+</body>
+</html>
